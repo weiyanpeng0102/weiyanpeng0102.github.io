@@ -1,0 +1,5 @@
+hexo d -g部署文章
+hexo new post "文章名字"
+目录是Hexo
+
+password peng030102

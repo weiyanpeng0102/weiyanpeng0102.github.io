@@ -84,7 +84,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="NOIP2018-TG-滚粗记"><a href="#NOIP2018-TG-滚粗记" class="headerlink" title="NOIP2018 (TG) 滚粗记"></a>NOIP2018 (TG) 滚粗记</h3><hr>
+<p>_by      jerome_wei_</p>
+<p><strong>目录：</strong></p>
+<p>[TOC]</p>
+<hr>
+<blockquote>
+<p><del>本文纯属口胡</del></p>
+</blockquote>
+<p>还是先分析以下两天的解题情况</p>
+<h3 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1"></a>DAY1</h3><h4 id="T1-铺设道路"><a href="#T1-铺设道路" class="headerlink" title="T1 铺设道路"></a>T1 铺设道路</h4><p>看了一眼发现yk的讲义中我搞过这个东西，就直接写了。</p>
+<h4 id="T2-货币系统"><a href="#T2-货币系统" class="headerlink" title="T2 货币系统"></a>T2 货币系统</h4><p>想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 <strong>T3</strong> ，发现 <strong>T3</strong> 大概是一个树形DP，感觉不会太难写，就先开 <strong>T2</strong> 了。 读完题想到的是 <strong><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2118" target="_blank" rel="noopener">BZOJ2118 墨墨的等式</a></strong> 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通就行了。</p>
+<h4 id="T3-赛道修建"><a href="#T3-赛道修建" class="headerlink" title="T3 赛道修建"></a>T3 赛道修建</h4><p>A了<strong>T1</strong>,<strong>T2</strong>发现自己时间还多，然后就冷静分析了以下题面，因为<strong>T2</strong>是按照图来理解的所以并没有否定这道题不是DP，然后再看了以下二分答案也很好的确定了。然后不难发现要记一个最多存多少。因为觉得二分答案肯定是对的，然后又发现没有合适的转移，就考虑去找以下性质。然后发现DP的时候如果是一条链它越在底端答案一定更优。然后考虑合并的时候发现还需要尽量让剩下的最大长度变得更大。于是就想到在这个地方按照长度排序然后每个长度找最小的可行的配对。当时没有证明正确性（不过越写越觉得对？），只是想保底70分（我证明了二叉树是没问题的）然后如果不是对的感觉也想不到什么其他方法就写了，然后发现调过了大样例。</p>
+<h4 id="D1对拍"><a href="#D1对拍" class="headerlink" title="D1对拍"></a>D1对拍</h4><p>发现自己都不太会打暴力啊orz</p>
+<p>然后就<strong>T2</strong>写了个指数暴力拍了一下发现没问题，<strong>T1</strong>,<strong>T3</strong>真的不太会写其他的暴力什么的时间也不太够，就直接<strong>T1</strong><del>象征性的</del>正着反着跑了一遍就没管了（那题没搞懂首尾相连是什么意思但是看样例发现不是一个环），然后<strong>T3</strong>感觉大样例对了应该不是细节问题，然后就验证算法正确性随机一个树然后随机选两个点作为根看答案有没有问题，然后还写了一个链的对拍，就没写了。</p>
+<h5 id="PLUS"><a href="#PLUS" class="headerlink" title="PLUS"></a>PLUS</h5><p>竟然评测机换成<strong><em>i7 8700k</em></strong>了，考的时候完全没有注意然后发现还在卡<strong>T2</strong>的常数</p>
+<h3 id="DAY2"><a href="#DAY2" class="headerlink" title="DAY2"></a>DAY2</h3><h4 id="T1-旅行"><a href="#T1-旅行" class="headerlink" title="T1 旅行"></a>T1 旅行</h4><p>貌似常数有点大？发现这题是个树或者环套树（基环树）。然后发现走的路线本质就是一颗树，每次就是按照儿子边权从小到达DFS。最开始想了下感觉没法直接找到断开的边感觉不太好做，然后就想到枚举断开的边然后跑之后发现直接跑会带个log，然后发现可以直接先把每个点的出度排好序，就成了$O($n^2$)$。</p>
+<p>后来听说可以$O(n)$来着？反正我是不会的</p>
+<h4 id="T2-填数游戏"><a href="#T2-填数游戏" class="headerlink" title="T2 填数游戏"></a>T2 填数游戏</h4><p><strong>T1</strong>莫名其妙的写了很久，中途IDE还崩了一次。。。</p>
+<p>看到$n=8$就直接想到状压DP，很诧异为啥NOIP连考三年的状压。。。然后想了半个多小时发现自己连一个具有无后效性的状态都设计不出来，然后看了部分分发现50都很好打然后就把50分写了去看<strong>T3</strong>了。最后返回来看的时候还以为是DP也就没有去想找规律，自己打了一个5*5的表发现貌似找不到太多规律就没管了。</p>
+<p>然后走出考场发现这题貌似不是DP？然后发现自己骗的分远远不够啊，一堆高二的打表找规律把$n=3$的数据搞出来了。</p>
+<h4 id="T3保卫王国"><a href="#T3保卫王国" class="headerlink" title="T3保卫王国"></a>T3保卫王国</h4><p><strong>T3</strong>看了一下感觉自己就算知道正解也不太调的完就先打了一个44分暴力。然后想了一下这个DP怎么优化，想到树剖维护一些东西然后发现自己又不会了，于是去看了一下发现自己貌似不太会打啊。之后看了一下各个部分分然后发现貌似都不太好打，就去看<strong>T2</strong>了（当时还是觉得<strong>T2</strong>n=3的部分分性价比高虽然还是没拿）</p>
+<p>然后出来发现自己<strong>T3</strong>正向跑反向跑都不会了，于是滚粗。</p>
+<p>然后听说是动态DP？一脸懵逼</p>
+<p>upd：正解是倍增？考场上想到了但是没有想出来。貌似是要先发现这个可以写成矩乘形式，然后貌似是的确可以倍增的。。。的确没想到矩阵乘法啊orz不过貌似之后看起来挺显然的？理解不深刻啊。</p>
+<h4 id="D2-对拍"><a href="#D2-对拍" class="headerlink" title="D2 对拍"></a>D2 对拍</h4><p>都是暴力还过了大样例，然后也写不来其他解法，就只写了<strong>T3</strong>的一个大环的数据看了一下速度，发现本机1.5s左右，然后想了想觉得 <strong><em>i7 8700k</em></strong> 应该是跑的过的，就没管了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="total"><a href="#total" class="headerlink" title="total"></a>total</h4><p>这次<strong>DAY1</strong>没太大问题，主要是<strong>DAY2</strong>，不知道为啥写<strong>T1</strong>的时候IDE崩了一下，幸好及时保存了给监考员反应了一下也没太大事情了。<strong>DAY2</strong>的<strong>T1</strong>写的太久了(快一个半小时)，可能代码能力还是不够，然后<strong>T2</strong>,<strong>T3</strong>的暴力没有打满，可能有些东西还没想到，然后下次要注意一下不会的时候要打表找找规律看能不能骗分，然后NOIP的时间还是比较充裕的特别是这种一天都做的来一天都做不来的情况，但是貌似自己还是有点慢。然后读题没有出太大问题，不存在中途发现读错题重写的情况。就是乱搞能力变差了啊，以后该练下搜索剪枝之类的？？</p>
+<p>大概就是这样了。</p>
+<h4 id="关于调试"><a href="#关于调试" class="headerlink" title="关于调试"></a>关于调试</h4><p>这次考试过样例貌似比之前的任何一次NOIp都要顺利，几乎没有出现调试很久的情况，主要调试很久的就一个地方：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//source:D1T3</span></span><br><span class="line"><span class="comment">//in function:dfs(int x,int pre)//dp\贪心 转移。</span></span><br><span class="line">	<span class="keyword">if</span>(top)&#123;</span><br><span class="line">        top2=<span class="number">0</span>;</span><br><span class="line">        sort(stk+<span class="number">1</span>,stk+top+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> i,j=top;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=top;i++)<span class="keyword">if</span>(!vis[i])&#123;<span class="comment">//这里最开始没有写，然后导致答案变大（重复计算一条链）</span></span><br><span class="line">            <span class="keyword">while</span>(j&amp;&amp;stk[j]+stk[i]&gt;=len)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!vis[j])stk2[++top2]=j;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(top2&amp;&amp;stk2[top2]&lt;=i)top2--;</span><br><span class="line">            <span class="keyword">if</span>(top2)&#123;</span><br><span class="line">                vis[stk2[top2--]]=<span class="literal">true</span>;</span><br><span class="line">                vis[i]=<span class="literal">true</span>;</span><br><span class="line">                Dpsum++;</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>这个东西考场上纯粹是运气好调的不久的，以后还是要想仔细一点。</p>
+<p><strong>Ps</strong>：开Wall真的好用啊</p>
+<h4 id="关于心态"><a href="#关于心态" class="headerlink" title="关于心态"></a>关于心态</h4><p>今年心态是真的没啥压力，但是考前还是明显的感觉到紧张，然后考试中都做题去了就没那感觉了。。。</p>
+<p>然后晚上休息还不错，没出现考场睡觉的情况。</p>
+
       
     </div>
     <footer class="article-footer">

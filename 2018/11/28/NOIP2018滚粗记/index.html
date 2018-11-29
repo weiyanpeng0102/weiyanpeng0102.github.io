@@ -1,100 +1,325 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+
+
 
   
-  <title>NOIP2018滚粗记 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NOIP2018 (TG) 滚粗记 _by      jerome_wei_ 目录： [TOC]   本文纯属口胡  还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的">
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOIP2018滚粗记">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/NOIP2018滚粗记/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="NOIP2018 (TG) 滚粗记 _by      jerome_wei_ 目录： [TOC]   本文纯属口胡  还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-28T15:28:37.193Z">
+<meta property="og:site_name" content="jerome_wei">
+<meta property="og:description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-29T13:59:55.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP2018滚粗记">
-<meta name="twitter:description" content="NOIP2018 (TG) 滚粗记 _by      jerome_wei_ 目录： [TOC]   本文纯属口胡  还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-NOIP2018滚粗记" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/28/NOIP2018滚粗记/" class="article-date">
-  <time datetime="2018-11-28T15:25:22.000Z" itemprop="datePublished">2018-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      NOIP2018滚粗记
-    </h1>
+<meta name="twitter:description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/28/NOIP2018滚粗记/">
+
+
+
+
+
+  <title>NOIP2018滚粗记 | jerome_wei</title>
   
 
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jerome_wei</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">welcome to my zone</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/NOIP2018滚粗记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jerome_wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jerome_wei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NOIP2018滚粗记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T23:25:22+08:00">
+                2018-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h3 id="NOIP2018-TG-滚粗记"><a href="#NOIP2018-TG-滚粗记" class="headerlink" title="NOIP2018 (TG) 滚粗记"></a>NOIP2018 (TG) 滚粗记</h3><hr>
-<p>_by      jerome_wei_</p>
-<p><strong>目录：</strong></p>
-<p>[TOC]</p>
-<hr>
-<blockquote>
-<p><del>本文纯属口胡</del></p>
-</blockquote>
-<p>还是先分析以下两天的解题情况</p>
+      
+
+      
+        <p>还是先分析以下两天的解题情况</p>
 <h3 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1"></a>DAY1</h3><h4 id="T1-铺设道路"><a href="#T1-铺设道路" class="headerlink" title="T1 铺设道路"></a>T1 铺设道路</h4><p>看了一眼发现yk的讲义中我搞过这个东西，就直接写了。</p>
 <h4 id="T2-货币系统"><a href="#T2-货币系统" class="headerlink" title="T2 货币系统"></a>T2 货币系统</h4><p>想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 <strong>T3</strong> ，发现 <strong>T3</strong> 大概是一个树形DP，感觉不会太难写，就先开 <strong>T2</strong> 了。 读完题想到的是 <strong><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2118" target="_blank" rel="noopener">BZOJ2118 墨墨的等式</a></strong> 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通就行了。</p>
 <h4 id="T3-赛道修建"><a href="#T3-赛道修建" class="headerlink" title="T3 赛道修建"></a>T3 赛道修建</h4><p>A了<strong>T1</strong>,<strong>T2</strong>发现自己时间还多，然后就冷静分析了以下题面，因为<strong>T2</strong>是按照图来理解的所以并没有否定这道题不是DP，然后再看了以下二分答案也很好的确定了。然后不难发现要记一个最多存多少。因为觉得二分答案肯定是对的，然后又发现没有合适的转移，就考虑去找以下性质。然后发现DP的时候如果是一条链它越在底端答案一定更优。然后考虑合并的时候发现还需要尽量让剩下的最大长度变得更大。于是就想到在这个地方按照长度排序然后每个长度找最小的可行的配对。当时没有证明正确性（不过越写越觉得对？），只是想保底70分（我证明了二叉树是没问题的）然后如果不是对的感觉也想不到什么其他方法就写了，然后发现调过了大样例。</p>
@@ -122,101 +347,360 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/28/NOIP2018滚粗记/" data-id="cjp1bus0m00002gxx47l72qdw" class="article-share-link">Share</a>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/28/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
       
       
     </footer>
   </div>
   
-    
-<nav id="article-nav">
   
   
-    <a href="/2018/11/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+  </article>
 
-  
-</article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    <div class="post-spread">
+      
     </div>
   </div>
 
 
+          </div>
+          
+
+
+          
+
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
+
+
+
+        </div>
         
-          <li>
-            <a href="/2018/11/28/NOIP2018滚粗记/">NOIP2018滚粗记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/28/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
 
-  
-</aside>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">jerome_wei</p>
+              <p class="site-description motion-element" itemprop="description">A blog full of daydream</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DAY1"><span class="nav-number">1.</span> <span class="nav-text">DAY1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#T1-铺设道路"><span class="nav-number">1.1.</span> <span class="nav-text">T1 铺设道路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#T2-货币系统"><span class="nav-number">1.2.</span> <span class="nav-text">T2 货币系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#T3-赛道修建"><span class="nav-number">1.3.</span> <span class="nav-text">T3 赛道修建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D1对拍"><span class="nav-number">1.4.</span> <span class="nav-text">D1对拍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PLUS"><span class="nav-number">1.4.1.</span> <span class="nav-text">PLUS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAY2"><span class="nav-number">2.</span> <span class="nav-text">DAY2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#T1-旅行"><span class="nav-number">2.1.</span> <span class="nav-text">T1 旅行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#T2-填数游戏"><span class="nav-number">2.2.</span> <span class="nav-text">T2 填数游戏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#T3保卫王国"><span class="nav-number">2.3.</span> <span class="nav-text">T3保卫王国</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D2-对拍"><span class="nav-number">2.4.</span> <span class="nav-text">D2 对拍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#total"><span class="nav-number">3.1.</span> <span class="nav-text">total</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于调试"><span class="nav-number">3.2.</span> <span class="nav-text">关于调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于心态"><span class="nav-number">3.3.</span> <span class="nav-text">关于心态</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-      <footer id="footer">
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jerome_wei</span>
+
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

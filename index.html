@@ -128,6 +128,17 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入查看密码') !== ''){
+                alert('密码不正确,请询问主编大大');
+                history.back();
+            }
+        }
+    })();
+</script>
+
   <title>jerome_wei</title>
   
 
@@ -271,7 +282,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jerome_wei">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/timg.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -363,7 +374,7 @@
 <p>c++里面有复数的stl，大概是</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;complex&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="keyword">typedef</span> <span class="keyword">complex</span> cplx;</span><br><span class="line">cplx&lt;<span class="keyword">double</span>&gt; x;x=cplx(<span class="number">1.00</span>,<span class="number">1.00</span>);</span><br><span class="line"><span class="comment">//x.real()表示实数部分，x.complex()表示虚数部分</span></span><br></pre></td></tr></table></figure>
 <h4 id="单位根"><a href="#单位根" class="headerlink" title="单位根"></a>单位根</h4><p>一个简单的说明方法：</p>
-<p>单位根就是将单位圆从$(1,0)$开始分割成 i 份得到的向量表示的复数吗，分割的第k的点就是k次单位根  即：$w_n^k $对应$ (\cos {k<em>2\pi/n},\sin {k</em>2\pi/n})$</p>
+<p>单位根就是将单位圆从$(1,0)$开始分割成 i 份得到的向量表示的复数吗，分割的第k的点就是k次单位根  即：$w_n^k $对应$  ( \cos {k <em> 2 \pi / n } ，\sin { k </em> 2 \pi / n } ) $</p>
 <p>我们根据复数乘法的定义再随便套个合角公式也不难得到 ：$w_n^k=(w_n^1)^k$</p>
 <p>然后我们还可以得到的是</p>
 <p>$w_{2n}^{2k}=w_n^k$ 画出来这个两个其实是等价的</p>
@@ -449,7 +460,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jerome_wei">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/timg.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -615,7 +626,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jerome_wei">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/timg.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -751,6 +762,8 @@
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/timg.jpg" alt="jerome_wei">
             
               <p class="site-author-name" itemprop="name">jerome_wei</p>
               <p class="site-description motion-element" itemprop="description">using namespace std:)</p>

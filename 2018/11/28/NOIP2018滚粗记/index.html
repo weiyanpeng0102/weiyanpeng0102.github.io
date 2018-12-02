@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通">
+<meta name="description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联">
 <meta name="keywords" content="NOIP,综合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOIP2018滚粗记">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/NOIP2018滚粗记/index.html">
 <meta property="og:site_name" content="jerome_wei">
-<meta property="og:description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通">
+<meta property="og:description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T14:54:27.075Z">
+<meta property="og:updated_time" content="2018-12-02T15:34:10.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP2018滚粗记">
-<meta name="twitter:description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通">
+<meta name="twitter:description" content="还是先分析以下两天的解题情况 DAY1T1 铺设道路看了一眼发现yk的讲义中我搞过这个东西，就直接写了。 T2 货币系统想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 T3 ，发现 T3 大概是一个树形DP，感觉不会太难写，就先开 T2 了。 读完题想到的是 BZOJ2118 墨墨的等式 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联">
 
 
 
@@ -367,7 +367,8 @@
       
 
       
-        <p>还是先分析以下两天的解题情况</p>
+        <hr>
+<p>还是先分析以下两天的解题情况</p>
 <h3 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1"></a>DAY1</h3><h4 id="T1-铺设道路"><a href="#T1-铺设道路" class="headerlink" title="T1 铺设道路"></a>T1 铺设道路</h4><p>看了一眼发现yk的讲义中我搞过这个东西，就直接写了。</p>
 <h4 id="T2-货币系统"><a href="#T2-货币系统" class="headerlink" title="T2 货币系统"></a>T2 货币系统</h4><p>想了想感觉是需要找一些性质（比如选子集一定更优），害怕写错又改就先看了下 <strong>T3</strong> ，发现 <strong>T3</strong> 大概是一个树形DP，感觉不会太难写，就先开 <strong>T2</strong> 了。 读完题想到的是 <strong><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2118" target="_blank" rel="noopener">BZOJ2118 墨墨的等式</a></strong> 那样去建图，然后顺便证了以下一定是选一个子集更优。然后就想到去排序然后每次看是否联通就行了。</p>
 <h4 id="T3-赛道修建"><a href="#T3-赛道修建" class="headerlink" title="T3 赛道修建"></a>T3 赛道修建</h4><p>A了<strong>T1</strong>,<strong>T2</strong>发现自己时间还多，然后就冷静分析了以下题面，因为<strong>T2</strong>是按照图来理解的所以并没有否定这道题不是DP，然后再看了以下二分答案也很好的确定了。然后不难发现要记一个最多存多少。因为觉得二分答案肯定是对的，然后又发现没有合适的转移，就考虑去找以下性质。然后发现DP的时候如果是一条链它越在底端答案一定更优。然后考虑合并的时候发现还需要尽量让剩下的最大长度变得更大。于是就想到在这个地方按照长度排序然后每个长度找最小的可行的配对。当时没有证明正确性（不过越写越觉得对？），只是想保底70分（我证明了二叉树是没问题的）然后如果不是对的感觉也想不到什么其他方法就写了，然后发现调过了大样例。</p>
@@ -515,7 +516,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +538,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

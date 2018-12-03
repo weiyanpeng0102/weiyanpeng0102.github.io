@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="字符串,模板,">
+  <meta name="keywords" content="模板,字符串,">
 
 
 
@@ -84,14 +84,14 @@
 
 
 <meta name="description" content="排序搞懂后缀数组主要是要搞懂它的基数排序，主要如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344#include&amp;lt;bits/stdc++.h&amp;gt;using namespace std;const int maxn = 1000010;int n;char s[maxn];">
-<meta name="keywords" content="字符串,模板">
+<meta name="keywords" content="模板,字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="后缀数组学习笔记">
 <meta property="og:url" content="http://yoursite.com/2018/12/03/后缀数组学习笔记/index.html">
 <meta property="og:site_name" content="jerome_wei">
 <meta property="og:description" content="排序搞懂后缀数组主要是要搞懂它的基数排序，主要如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344#include&amp;lt;bits/stdc++.h&amp;gt;using namespace std;const int maxn = 1000010;int n;char s[maxn];">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-03T14:43:24.744Z">
+<meta property="og:updated_time" content="2018-12-03T15:52:04.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后缀数组学习笔记">
 <meta name="twitter:description" content="排序搞懂后缀数组主要是要搞懂它的基数排序，主要如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344#include&amp;lt;bits/stdc++.h&amp;gt;using namespace std;const int maxn = 1000010;int n;char s[maxn];">
@@ -377,7 +377,7 @@
 <p>rank：第i个起点在sa中的排序</p>
 <p>p：sa_i之前的那个id (排序第二关键字)</p>
 </blockquote>
-<h3 id="height数组"><a href="#height数组" class="headerlink" title="height数组"></a>height数组</h3><p>这个数组有一堆性质，最基本的就是对于原数组的相邻位置，其height差值为1</p>
+<h3 id="height数组"><a href="#height数组" class="headerlink" title="height数组"></a>height数组</h3><p>这个数组有一堆性质，最基本的就是对于原数组的一个位置，其height值最小为上一个原数组中位置的height-1</p>
 <p>然后用这个可以求height.</p>
 <p>然后两个后缀的lcp就是两个位置之间的height最小值。</p>
 <p>以下是height加上字典序第i大(不算重复)字串，需要注意的是我们的getrank招到的一定要是第一个包含该子串的才行。</p>
@@ -401,9 +401,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/字符串/" rel="tag"># 字符串</a>
-          
             <a href="/tags/模板/" rel="tag"># 模板</a>
+          
+            <a href="/tags/字符串/" rel="tag"># 字符串</a>
           
         </div>
       

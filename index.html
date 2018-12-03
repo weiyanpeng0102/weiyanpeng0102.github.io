@@ -380,7 +380,7 @@
 <p>rank：第i个起点在sa中的排序</p>
 <p>p：sa_i之前的那个id (排序第二关键字)</p>
 </blockquote>
-<h3 id="height数组"><a href="#height数组" class="headerlink" title="height数组"></a>height数组</h3><p>这个数组有一堆性质，最基本的就是对于原数组的相邻位置，其height差值为1</p>
+<h3 id="height数组"><a href="#height数组" class="headerlink" title="height数组"></a>height数组</h3><p>这个数组有一堆性质，最基本的就是对于原数组的一个位置，其height值最小为上一个原数组中位置的height-1</p>
 <p>然后用这个可以求height.</p>
 <p>然后两个后缀的lcp就是两个位置之间的height最小值。</p>
 <p>以下是height加上字典序第i大(不算重复)字串，需要注意的是我们的getrank招到的一定要是第一个包含该子串的才行。</p>

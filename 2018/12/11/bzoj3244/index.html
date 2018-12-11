@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="概率期望,">
+  <meta name="keywords" content="概率期望,DP,">
 
 
 
@@ -84,14 +84,14 @@
 
 
 <meta name="description" content="我们发现树深度相等的节点是BFS序上的一段。原题就相当于要在bfs序上分成若干段，不难发现只有一组或零组解，而我们考虑如何划分才会有贡献。发现： 1. 新加入的一段在DFS序中的相对位置与BFS序中的相对位置相同 2. 对于每一个未加入的区间，新加入的一段一定包含其起点 然后不难发现每个位置转移的是一个区间，用线段树分别维护当前的方案和以及当前的深度和即可。 然后(交一遍)发现方案太多。于是我们">
-<meta name="keywords" content="概率期望">
+<meta name="keywords" content="概率期望,DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bzoj3244">
 <meta property="og:url" content="http://yoursite.com/2018/12/11/bzoj3244/index.html">
 <meta property="og:site_name" content="jerome_wei">
 <meta property="og:description" content="我们发现树深度相等的节点是BFS序上的一段。原题就相当于要在bfs序上分成若干段，不难发现只有一组或零组解，而我们考虑如何划分才会有贡献。发现： 1. 新加入的一段在DFS序中的相对位置与BFS序中的相对位置相同 2. 对于每一个未加入的区间，新加入的一段一定包含其起点 然后不难发现每个位置转移的是一个区间，用线段树分别维护当前的方案和以及当前的深度和即可。 然后(交一遍)发现方案太多。于是我们">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T14:15:22.606Z">
+<meta property="og:updated_time" content="2018-12-11T14:52:02.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bzoj3244">
 <meta name="twitter:description" content="我们发现树深度相等的节点是BFS序上的一段。原题就相当于要在bfs序上分成若干段，不难发现只有一组或零组解，而我们考虑如何划分才会有贡献。发现： 1. 新加入的一段在DFS序中的相对位置与BFS序中的相对位置相同 2. 对于每一个未加入的区间，新加入的一段一定包含其起点 然后不难发现每个位置转移的是一个区间，用线段树分别维护当前的方案和以及当前的深度和即可。 然后(交一遍)发现方案太多。于是我们">
@@ -395,6 +395,8 @@
           
             <a href="/tags/概率期望/" rel="tag"># 概率期望</a>
           
+            <a href="/tags/DP/" rel="tag"># DP</a>
+          
         </div>
       
 
@@ -506,7 +508,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

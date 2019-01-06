@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="组合数学,">
+  <meta name="keywords" content="DP,">
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。 然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。 然后就是： 从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2">
-<meta name="keywords" content="组合数学">
+<meta name="description" content="真·神仙题。样例都看不懂。 首先推理。根据提示(这东西我也不会证啊)最大的是n%3的位置。 然后我们思考要怎么确定轮数。冷静分析我们发现其实就是推理出另外一种解不行。 局面是 $(x,y,x+y)$,则我们会有两种情况：$x+y,|y-x|$ 然后推出不行的话就是看如果如果是另外一种情况推理出来的轮数时没有被推理出来，则这个是不行的。 边界情况可以直接写，然后就可以枚举然后递(D)推(P)了。">
+<meta name="keywords" content="DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bzoj4005">
-<meta property="og:url" content="http://yoursite.com/2018/12/05/bzoj4005/index.html">
+<meta property="og:title" content="bzoj2523">
+<meta property="og:url" content="http://yoursite.com/2019/01/06/bzoj2523/index.html">
 <meta property="og:site_name" content="jerome_wei">
-<meta property="og:description" content="这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。 然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。 然后就是： 从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2">
+<meta property="og:description" content="真·神仙题。样例都看不懂。 首先推理。根据提示(这东西我也不会证啊)最大的是n%3的位置。 然后我们思考要怎么确定轮数。冷静分析我们发现其实就是推理出另外一种解不行。 局面是 $(x,y,x+y)$,则我们会有两种情况：$x+y,|y-x|$ 然后推出不行的话就是看如果如果是另外一种情况推理出来的轮数时没有被推理出来，则这个是不行的。 边界情况可以直接写，然后就可以枚举然后递(D)推(P)了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-05T15:19:32.520Z">
+<meta property="og:updated_time" content="2019-01-06T06:48:02.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bzoj4005">
-<meta name="twitter:description" content="这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。 然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。 然后就是： 从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2">
+<meta name="twitter:title" content="bzoj2523">
+<meta name="twitter:description" content="真·神仙题。样例都看不懂。 首先推理。根据提示(这东西我也不会证啊)最大的是n%3的位置。 然后我们思考要怎么确定轮数。冷静分析我们发现其实就是推理出另外一种解不行。 局面是 $(x,y,x+y)$,则我们会有两种情况：$x+y,|y-x|$ 然后推出不行的话就是看如果如果是另外一种情况推理出来的轮数时没有被推理出来，则这个是不行的。 边界情况可以直接写，然后就可以枚举然后递(D)推(P)了。">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/05/bzoj4005/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/06/bzoj2523/">
 
 
 
@@ -141,7 +141,7 @@
     })();
 </script>
 
-  <title>bzoj4005 | jerome_wei</title>
+  <title>bzoj2523 | jerome_wei</title>
   
 
 
@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/bzoj4005/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/06/bzoj2523/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jerome_wei">
@@ -295,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">bzoj4005</h1>
+          <h1 class="post-title" itemprop="name headline">bzoj2523</h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T22:49:53+08:00">
-                2018-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T14:35:50+08:00">
+                2019-01-06
               </time>
             
 
@@ -368,16 +368,13 @@
 
       
         <hr>
-<p>这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。</p>
-<p>然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。</p>
-<p>然后就是：</p>
-<p>从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2)$</p>
-<p>然后我们考虑计算总的减去经过$y_1$，$y_2$的方案，这个地方我们发现我们是不好处理同时经过的方案数</p>
-<p><del>考虑容斥的骚操作。</del></p>
-<p>我们将连续经过同一条线视作只经过一次，然后参考将军饮马那样翻折。我们可以发现翻折后仅仅相当于将向右和向左的方向交换了，所以原点到T的方案数就是至少按顺序经过这几次的方案数。然后边做边容斥就行了。</p>
-<p>然后边界就是x或者y&lt;0，这个时候一定没有答案了。</p>
-<p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,x,y,ans;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">3e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> fac[N],inv[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>;<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res=(ll)res*a%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;a=(ll)a*a%mod;</span><br><span class="line">	&#125;<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fac[<span class="number">0</span>]=fac[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	inv[<span class="number">0</span>]=inv[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)fac[i]=(ll)fac[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">	inv[N<span class="number">-1</span>]=qpow(fac[N<span class="number">-1</span>],mod<span class="number">-2</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>;i;i--)</span><br><span class="line">		inv[i]=(ll)inv[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comb</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a&lt;b)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> (ll)fac[a]*inv[a-b]%mod*inv[b]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flp1</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;<span class="comment">//"y=x+1</span></span><br><span class="line">	swap(x,y);</span><br><span class="line">	--x,++y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flp2</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">	swap(x,y);</span><br><span class="line">	x+=m+<span class="number">2</span>,y-=m+<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">	init();</span><br><span class="line">	ans=comb(n*<span class="number">2</span>+m+<span class="number">1</span>,n);</span><br><span class="line">	x=n+m+<span class="number">1</span>,y=n;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">		flp1(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans-=comb(x+y,y);</span><br><span class="line">		flp2(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans+=comb(x+y,y);</span><br><span class="line">		ans%=mod;</span><br><span class="line">	&#125;</span><br><span class="line">	x=n+m+<span class="number">1</span>,y=n;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">		flp2(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans-=comb(x+y,y);</span><br><span class="line">		flp1(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans+=comb(x+y,y);</span><br><span class="line">		ans%=mod;</span><br><span class="line">	&#125;</span><br><span class="line">	ans=(ans+mod)%mod;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>真·神仙题。<del>样例都看不懂。</del></p>
+<p>首先推理。根据提示(这东西我也不会证啊)最大的是n%3的位置。</p>
+<p>然后我们思考要怎么确定轮数。冷静分析我们发现其实就是推理出另外一种解不行。</p>
+<p>局面是 $(x,y,x+y)$,则我们会有两种情况：$x+y,|y-x|$</p>
+<p>然后推出不行的话就是看如果如果是另外一种情况推理出来的轮数时没有被推理出来，则这个是不行的。</p>
+<p>边界情况可以直接写，然后就可以枚举然后递(D)推(P)了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> t,<span class="keyword">int</span> now)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(now&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==y)<span class="keyword">break</span>;<span class="keyword">int</span> nx=x,ny=y;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;y)x=ny-nx,y=nx,t=(t+<span class="number">2</span>)%<span class="number">3</span>,now--;</span><br><span class="line">        <span class="keyword">else</span> x=ny,y=nx-ny,t=(t+<span class="number">1</span>)%<span class="number">3</span>,now-=<span class="number">2</span>;</span><br><span class="line">    &#125;<span class="keyword">if</span>(x==y)<span class="keyword">return</span> now==t;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="keyword">int</span> t[<span class="number">100010</span>][<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);~n&amp;&amp;~m;<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m))&#123;</span><br><span class="line">        n--;</span><br><span class="line">        <span class="keyword">int</span> a=n%<span class="number">3</span>,b=(a+<span class="number">1</span>)%<span class="number">3</span>,c=(b+<span class="number">1</span>)%<span class="number">3</span>;</span><br><span class="line">        ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m<span class="number">-1</span>;i++)<span class="keyword">if</span>(chk(i,m-i,a,n))&#123;</span><br><span class="line">            ++ans;</span><br><span class="line">            t[ans][a]=m,t[ans][b]=i,t[ans][c]=m-i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)<span class="keyword">for</span>(<span class="keyword">int</span> i=ans;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,t[i][<span class="number">0</span>],t[i][<span class="number">1</span>],t[i][<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=ans;i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,t[i][<span class="number">0</span>],t[i][<span class="number">1</span>],t[i][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -395,7 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
+            <a href="/tags/DP/" rel="tag"># DP</a>
           
         </div>
       
@@ -408,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/bzoj1061/" rel="next" title="bzoj1061">
-                <i class="fa fa-chevron-left"></i> bzoj1061
+              <a href="/2018/12/11/bzoj3244/" rel="next" title="bzoj3244">
+                <i class="fa fa-chevron-left"></i> bzoj3244
               </a>
             
           </div>
@@ -417,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/11/bzoj3244/" rel="prev" title="bzoj3244">
-                bzoj3244 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

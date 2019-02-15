@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="组合数学,">
+  <meta name="keywords" content="组合数学,斯特林数,">
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。 然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。 然后就是： 从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2">
-<meta name="keywords" content="组合数学">
+<meta name="description" content="本文有推导 定义&amp;amp;前置知识第一类斯特林数定义第一类斯特林数 $ \begin{bmatrix} n \ m \end{bmatrix} $ 表示把 n 个数划分成 m 个环排列的方案数 考虑最后一个数怎么放，（放入一个环或开一个环），有递推式：$$\begin{bmatrix} n \ m \end{bmatrix} = \begin{bmatrix} n-1 \ m-1 \end{bm">
+<meta name="keywords" content="组合数学,斯特林数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bzoj4005">
-<meta property="og:url" content="http://yoursite.com/2018/12/05/bzoj4005/index.html">
+<meta property="og:title" content="浅析斯特林数">
+<meta property="og:url" content="http://yoursite.com/2019/02/15/浅析斯特林数/index.html">
 <meta property="og:site_name" content="jerome_wei">
-<meta property="og:description" content="这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。 然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。 然后就是： 从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2">
+<meta property="og:description" content="本文有推导 定义&amp;amp;前置知识第一类斯特林数定义第一类斯特林数 $ \begin{bmatrix} n \ m \end{bmatrix} $ 表示把 n 个数划分成 m 个环排列的方案数 考虑最后一个数怎么放，（放入一个环或开一个环），有递推式：$$\begin{bmatrix} n \ m \end{bmatrix} = \begin{bmatrix} n-1 \ m-1 \end{bm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-05T15:19:32.520Z">
+<meta property="og:updated_time" content="2019-02-15T13:44:29.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bzoj4005">
-<meta name="twitter:description" content="这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。 然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。 然后就是： 从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2">
+<meta name="twitter:title" content="浅析斯特林数">
+<meta name="twitter:description" content="本文有推导 定义&amp;amp;前置知识第一类斯特林数定义第一类斯特林数 $ \begin{bmatrix} n \ m \end{bmatrix} $ 表示把 n 个数划分成 m 个环排列的方案数 考虑最后一个数怎么放，（放入一个环或开一个环），有递推式：$$\begin{bmatrix} n \ m \end{bmatrix} = \begin{bmatrix} n-1 \ m-1 \end{bm">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/05/bzoj4005/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/15/浅析斯特林数/">
 
 
 
@@ -141,7 +141,7 @@
     })();
 </script>
 
-  <title>bzoj4005 | jerome_wei</title>
+  <title>浅析斯特林数 | jerome_wei</title>
   
 
 
@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/bzoj4005/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/浅析斯特林数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jerome_wei">
@@ -295,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">bzoj4005</h1>
+          <h1 class="post-title" itemprop="name headline">浅析斯特林数</h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T22:49:53+08:00">
-                2018-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-15T20:35:42+08:00">
+                2019-02-15
               </time>
             
 
@@ -330,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/思-zi-维-bi-好题/" itemprop="url" rel="index">
-                    <span itemprop="name">思(zi)维(bi)好题</span>
+                  <a href="/categories/口胡-总结/" itemprop="url" rel="index">
+                    <span itemprop="name">口胡&总结</span>
                   </a>
                 </span>
 
@@ -368,16 +368,55 @@
 
       
         <hr>
-<p>这题首先我们可以列出dp式子$f[i][x]=\sum f[i-1][j] (m+1\ge j\ge x-1)$其中x是一增加2的位置(m+1)则表示没有一个位置增加了2。</p>
-<p>然后我们考虑转化一下模型将每次的位置连成图，然后再考虑将向左上的拉伸成竖直向上。</p>
-<p>然后就是：</p>
-<p>从$S(0,0)$到 $T(n+m+1,n)$ ，只能向上向又走的方案数，其中不能经过$y_1=x+1$ ，$y_2=x-(m+2)$</p>
-<p>然后我们考虑计算总的减去经过$y_1$，$y_2$的方案，这个地方我们发现我们是不好处理同时经过的方案数</p>
-<p><del>考虑容斥的骚操作。</del></p>
-<p>我们将连续经过同一条线视作只经过一次，然后参考将军饮马那样翻折。我们可以发现翻折后仅仅相当于将向右和向左的方向交换了，所以原点到T的方案数就是至少按顺序经过这几次的方案数。然后边做边容斥就行了。</p>
-<p>然后边界就是x或者y&lt;0，这个时候一定没有答案了。</p>
-<p>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,x,y,ans;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">3e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> fac[N],inv[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">1</span>;<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)res=(ll)res*a%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;a=(ll)a*a%mod;</span><br><span class="line">	&#125;<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fac[<span class="number">0</span>]=fac[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	inv[<span class="number">0</span>]=inv[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;N;i++)fac[i]=(ll)fac[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">	inv[N<span class="number">-1</span>]=qpow(fac[N<span class="number">-1</span>],mod<span class="number">-2</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>;i;i--)</span><br><span class="line">		inv[i]=(ll)inv[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comb</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a&lt;b)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> (ll)fac[a]*inv[a-b]%mod*inv[b]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flp1</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;<span class="comment">//"y=x+1</span></span><br><span class="line">	swap(x,y);</span><br><span class="line">	--x,++y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flp2</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">	swap(x,y);</span><br><span class="line">	x+=m+<span class="number">2</span>,y-=m+<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">	init();</span><br><span class="line">	ans=comb(n*<span class="number">2</span>+m+<span class="number">1</span>,n);</span><br><span class="line">	x=n+m+<span class="number">1</span>,y=n;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">		flp1(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans-=comb(x+y,y);</span><br><span class="line">		flp2(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans+=comb(x+y,y);</span><br><span class="line">		ans%=mod;</span><br><span class="line">	&#125;</span><br><span class="line">	x=n+m+<span class="number">1</span>,y=n;</span><br><span class="line">	<span class="keyword">while</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">		flp2(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans-=comb(x+y,y);</span><br><span class="line">		flp1(x,y);</span><br><span class="line">		<span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;y&gt;=<span class="number">0</span>)ans+=comb(x+y,y);</span><br><span class="line">		ans%=mod;</span><br><span class="line">	&#125;</span><br><span class="line">	ans=(ans+mod)%mod;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><del>本文有推导</del></p>
+<h2 id="定义-amp-前置知识"><a href="#定义-amp-前置知识" class="headerlink" title="定义&amp;前置知识"></a>定义&amp;前置知识</h2><h3 id="第一类斯特林数"><a href="#第一类斯特林数" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h3><p>定义第一类斯特林数 $ \begin{bmatrix} n \ m \end{bmatrix} $ 表示把 n 个数划分成 m 个环排列的方案数</p>
+<p><strong>考虑最后一个数怎么放，（放入一个环或开一个环），有递推式：</strong><br>$$<br>\begin{bmatrix} n \ m \end{bmatrix} = \begin{bmatrix} n-1 \ m-1 \end{bmatrix}+(n-1)*\begin{bmatrix} n-1 \ m \end{bmatrix}<br>$$<br><strong>考虑最后一个环怎么放，枚举大小，有递推式：</strong><br>$$<br>\begin{bmatrix} n \ m \end{bmatrix} = \sum_{i = 1} ^ n\begin{bmatrix} n - i \ m - 1 \end{bmatrix} \ast (i - 1)! \ast \binom{n - 1}{i - 1}<br>$$</p>
+<h3 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3><p>定义第二类斯特林数$\begin{Bmatrix} n \ m \end{Bmatrix}$表示把n个数划分乘m个集合的方案数</p>
+<p><strong>考虑最后一个数怎么放，有递推式：</strong></p>
+<p>$$<br>\begin{Bmatrix} n \ m \end{Bmatrix} = \begin{Bmatrix} n - 1 \ m - 1 \end{Bmatrix}+\begin{Bmatrix} n - 1\ m \end{Bmatrix} \ast m<br>$$<br><strong>考虑最后一个集合是什么，枚举大小，有递推式：</strong></p>
+<p>$$<br>\begin{Bmatrix} n \ m \end{Bmatrix} = \sum_{i = 1}^n \begin{Bmatrix} n  - i\ m - 1 \end{Bmatrix}\ast \binom{n - 1}{i - 1}<br>$$</p>
+<h4 id="容斥计算"><a href="#容斥计算" class="headerlink" title="容斥计算"></a>容斥计算</h4><p>$$<br>\begin{Bmatrix} n \ m \end{Bmatrix}=\frac{1}{m!}\sum_{k = 0} ^ m (-1)^k \binom{m}{k}(m - k) ^n<br>$$</p>
+<blockquote>
+<p> <strong>推导</strong>  EGF是$e^x-1$的m次方，打开就行了</p>
+</blockquote>
+<h2 id="结论-公式"><a href="#结论-公式" class="headerlink" title="结论/公式"></a>结论/公式</h2><h3 id="1-amp-2（次幂转下降幂-amp-下降幂转次幂）"><a href="#1-amp-2（次幂转下降幂-amp-下降幂转次幂）" class="headerlink" title="1&amp;2（次幂转下降幂&amp;下降幂转次幂）"></a>1&amp;2（次幂转下降幂&amp;下降幂转次幂）</h3><p><strong>下降幂转次幂</strong></p>
+<p>$$<br>x^{\underline{n}} = \sum_{k = 0} ^ n (-1)^{n - k}\begin{bmatrix} n \ k \end{bmatrix}x^k<br>$$</p>
+<blockquote>
+<p> <strong>推导</strong>  考虑把x的n次下降幂打开，每一项的系数可以用一个dp来做然后发现dp的转移和斯特林数一样。</p>
+</blockquote>
+<p><strong>次幂转下降幂</strong><br>$$<br>x^n = \sum_{k = 0} ^ n \begin{Bmatrix} n \ k \end{Bmatrix} x ^ \underline{k}<br>$$<br>或<br>$$<br>x^n = \sum_{k = 0} ^ n \begin{Bmatrix} n \ k \end{Bmatrix} \binom{x}{k}k!<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  拆组合意义。考虑$x^n$相当于n次在x个数中选1-n。枚举有k个数被选过(组合数)，然后n次会被分成k组，因为每个数不一样所以组的顺序有关所以有一个阶乘。</p>
+</blockquote>
+<h3 id="3-amp-4"><a href="#3-amp-4" class="headerlink" title="3&amp;4"></a>3&amp;4</h3><p><strong>( 3 )</strong><br>$$<br>\sum_{k=m}^n\begin{bmatrix} n \ k \end{bmatrix}\begin{Bmatrix} k \ m \end{Bmatrix}(-1)^{n - k} = [m = n]<br>$$<br><strong>( 4 )</strong><br>$$<br>\sum_{k=m}^n\begin{Bmatrix} n \ k \end{Bmatrix}\begin{bmatrix} k \ m \end{bmatrix}(-1)^{k - m} = [m = n]<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  将( 1 )，( 2 ) 相互代入可得。</p>
+</blockquote>
+<h3 id="5-amp-6"><a href="#5-amp-6" class="headerlink" title="5&amp;6"></a>5&amp;6</h3><p><strong>( 5 )</strong><br>$$<br>\begin{bmatrix} n +1 \ m + 1 \end{bmatrix} = \sum_{k = m} ^ n \begin{bmatrix} n \ k \end{bmatrix}\binom{k}{m}<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  因为一个环排列对应着一个置换，然后一个置换又可以差分成很多的环排列，所以假设前n个数分成了k个环排列，并且这k个环排列中有m个不变，剩下的k−m个和新的环排列组合起来变成一个完整的环排列，也就是第m+1个环排列</p>
+</blockquote>
+<p><strong>( 6 )</strong><br>$$<br>\begin{Bmatrix} n +1 \ m + 1 \end{Bmatrix} = \sum_{k = m} ^ n \binom{n}{k}\begin{Bmatrix} k \ m \end{Bmatrix}<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  假设不和当前数在同一个集合里面的数是k个，所以这k个数会分成m个集合，然后再用组合数算一算和当前数在一个集合的数的方案数</p>
+</blockquote>
+<h3 id="7-amp-8"><a href="#7-amp-8" class="headerlink" title="7&amp;8"></a>7&amp;8</h3><p><strong>( 7 )</strong><br>$$<br>\begin{bmatrix} n + 1\ m + 1 \end{bmatrix} = \sum_{k = m} ^ n\begin{bmatrix} k\ m \end{bmatrix}(\frac{n!}{k!}或n^{\underline{n - k}})<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  考虑最后一个环</p>
+</blockquote>
+<p><strong>( 8 )</strong><br>$$<br>\begin{Bmatrix} n + 1\ m + 1 \end{Bmatrix} = \sum_{k = m} ^ n\begin{Bmatrix} k\ m \end{Bmatrix}(m+1)^{n - k}<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  考虑最后一个集合，化简后是这个</p>
+</blockquote>
+<h3 id="9-斯特林反演"><a href="#9-斯特林反演" class="headerlink" title="9  (斯特林反演)"></a>9  (斯特林反演)</h3><p>对于<br>$$<br>g(n) = \sum_{k = 0} ^ n(-1)^{n - k}\begin{bmatrix} n\ k \end{bmatrix}f(k)<br>$$<br>则：<br>$$<br>f(n) = \sum_{k = 0} ^ n \begin{Bmatrix} n \ k \end{Bmatrix}<br>g(k)<br>$$</p>
+<blockquote>
+<p><strong>推导</strong>  直接代入后用<strong>3&amp;4</strong>即可。</p>
+</blockquote>
+<h2 id="简单运用"><a href="#简单运用" class="headerlink" title="简单运用"></a>简单运用</h2><h3 id="求行"><a href="#求行" class="headerlink" title="求行"></a>求行</h3><h4 id="第一类斯特林数-1"><a href="#第一类斯特林数-1" class="headerlink" title="第一类斯特林数"></a>第一类斯特林数</h4><p>相当于x的n次上升幂</p>
+<p>然后可以分治FFT算出来</p>
+<p>然后发现右边的可以直接用左边的推出来(将所有的x换成x+n，然后这可以一个卷积完成)</p>
+<h4 id="第二类斯特林数-1"><a href="#第二类斯特林数-1" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h4><p>容斥公式是一个卷积就出来了</p>
+<h3 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h3><p>例题见<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4671" target="_blank" rel="noopener">BZOJ4671: 异或图</a></p>
 
       
     </div>
@@ -397,6 +436,8 @@
           
             <a href="/tags/组合数学/" rel="tag"># 组合数学</a>
           
+            <a href="/tags/斯特林数/" rel="tag"># 斯特林数</a>
+          
         </div>
       
 
@@ -408,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/04/bzoj1061/" rel="next" title="bzoj1061">
-                <i class="fa fa-chevron-left"></i> bzoj1061
+              <a href="/2019/01/06/bzoj2523/" rel="next" title="bzoj2523">
+                <i class="fa fa-chevron-left"></i> bzoj2523
               </a>
             
           </div>
@@ -417,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/11/bzoj3244/" rel="prev" title="bzoj3244">
-                bzoj3244 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -535,6 +581,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义-amp-前置知识"><span class="nav-number">1.</span> <span class="nav-text">定义&amp;前置知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一类斯特林数"><span class="nav-number">1.1.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二类斯特林数"><span class="nav-number">1.2.</span> <span class="nav-text">第二类斯特林数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#容斥计算"><span class="nav-number">1.2.1.</span> <span class="nav-text">容斥计算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论-公式"><span class="nav-number">2.</span> <span class="nav-text">结论/公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-amp-2（次幂转下降幂-amp-下降幂转次幂）"><span class="nav-number">2.1.</span> <span class="nav-text">1&amp;2（次幂转下降幂&amp;下降幂转次幂）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-amp-4"><span class="nav-number">2.2.</span> <span class="nav-text">3&amp;4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-amp-6"><span class="nav-number">2.3.</span> <span class="nav-text">5&amp;6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-amp-8"><span class="nav-number">2.4.</span> <span class="nav-text">7&amp;8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-斯特林反演"><span class="nav-number">2.5.</span> <span class="nav-text">9  (斯特林反演)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单运用"><span class="nav-number">3.</span> <span class="nav-text">简单运用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#求行"><span class="nav-number">3.1.</span> <span class="nav-text">求行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一类斯特林数-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">第一类斯特林数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二类斯特林数-1"><span class="nav-number">3.1.2.</span> <span class="nav-text">第二类斯特林数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斯特林反演"><span class="nav-number">3.2.</span> <span class="nav-text">斯特林反演</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

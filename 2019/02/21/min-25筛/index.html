@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数学/数论,筛法,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="干什么用的？min_25筛用于求一类积性函数的前缀和，其使用条件为：   $f(p)$是一个关于p的简单多项式 $f(p^c)$可以快速的计算   约定约定$P_i$为第i个质数，prime表示质数集合，$ver(i)$表示i的最小质因子 本文所有代码的取模计算用函数实现，具体代码如下： 1234567891011typedef long long ll;const int mod=1e9+7;">
+<meta name="keywords" content="数学&#x2F;数论,筛法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="min_25筛">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/min-25筛/index.html">
+<meta property="og:site_name" content="jerome_wei">
+<meta property="og:description" content="干什么用的？min_25筛用于求一类积性函数的前缀和，其使用条件为：   $f(p)$是一个关于p的简单多项式 $f(p^c)$可以快速的计算   约定约定$P_i$为第i个质数，prime表示质数集合，$ver(i)$表示i的最小质因子 本文所有代码的取模计算用函数实现，具体代码如下： 1234567891011typedef long long ll;const int mod=1e9+7;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-21T15:37:18.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="min_25筛">
+<meta name="twitter:description" content="干什么用的？min_25筛用于求一类积性函数的前缀和，其使用条件为：   $f(p)$是一个关于p的简单多项式 $f(p^c)$可以快速的计算   约定约定$P_i$为第i个质数，prime表示质数集合，$ver(i)$表示i的最小质因子 本文所有代码的取模计算用函数实现，具体代码如下： 1234567891011typedef long long ll;const int mod=1e9+7;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/21/min-25筛/">
+
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入查看密码') !== ''){
+                alert('密码不正确,请询问主编大大');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>min_25筛 | jerome_wei</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jerome_wei</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">welcome to my zone</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/min-25筛/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jerome_wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jerome_wei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">min_25筛</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T23:32:51+08:00">
+                2019-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/口胡-总结/" itemprop="url" rel="index">
+                    <span itemprop="name">口胡&总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="干什么用的？"><a href="#干什么用的？" class="headerlink" title="干什么用的？"></a>干什么用的？</h2><p>min_25筛用于求一类积性函数的前缀和，其使用条件为：</p>
+<blockquote>
+<ol>
+<li>$f(p)$是一个关于p的简单多项式</li>
+<li>$f(p^c)$可以快速的计算</li>
+</ol>
+</blockquote>
+<h2 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h2><p>约定$P_i$为第i个质数，prime表示质数集合，$ver(i)$表示i的最小质因子</p>
+<p>本文所有代码的取模计算用函数实现，具体代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;a+=b;<span class="keyword">return</span> a&gt;=mod?a-mod:a;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;a-=b;<span class="keyword">return</span> a&lt;<span class="number">0</span>?a+mod:a;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> (ll)a*b%mod;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>,a=mul(a,a))<span class="keyword">if</span>(b&amp;<span class="number">1</span>)ret=mul(ret,a);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* math */</span></span><br></pre></td></tr></table></figure>
+<p>并且预处理出$\sqrt {n}$的所有素数以及前缀和</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> prime[N],pre[N],pcnt,v[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getprime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!v[i])prime[++pcnt]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=pcnt&amp;&amp;(<span class="keyword">long</span> <span class="keyword">long</span>)prime[j]*i&lt;=n;j++)&#123;</span><br><span class="line">            v[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(!i%prime[j])<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=pcnt;i++)pre[i]=add(pre[i<span class="number">-1</span>],prime[i]);<span class="comment">//pre为前缀和</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="怎么筛"><a href="#怎么筛" class="headerlink" title="怎么筛"></a>怎么筛</h2><h3 id="1-考虑质数"><a href="#1-考虑质数" class="headerlink" title="1. 考虑质数"></a>1. 考虑质数</h3><p>我们先考虑将函数全部写成质数时的表达式子，然后求出所有为质数的值，即对于每个n/i，求出<br>$$<br>g[n]=\sum_{(j\le n)  and (j \in prime)} f(j)<br>$$<br>我们记$g[n][j]$表示g[n]筛去前 j 个质数的倍数的情况</p>
+<p>显然$P_j^2&gt;n$的时候不会筛掉任何数，考虑容斥掉之前的质数的情况，我们有：<br>$$<br>g[n][j]=g[n][j-1] (P_j^2&gt;n)<br>$$</p>
+<p>$$<br>g[n][j]=g[n][j-1]-f(P_j)(g[\frac {n} {P_j}][j-1]-\sum_{i=1}^{j-1}f(P_i)) （P_j^2\le n）<br>$$</p>
+<p>$$<br>g[n][0]=\sum f(i)(按照i\in prime 算)<br>$$</p>
+<p>以下以筛素数个数以及筛素数和为例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(ll u=<span class="number">1</span>,v;u&lt;=n;u=v+<span class="number">1</span>)&#123;</span><br><span class="line">    v=n/(n/u);</span><br><span class="line">    w[++m]=n/u;</span><br><span class="line">    <span class="keyword">if</span>(w[m]&lt;=sqr)id1[w[m]]=m;</span><br><span class="line">    <span class="keyword">else</span> id2[n/w[m]]=m; <span class="comment">//此处对于大于/小于根号的分别存储id便于存储</span></span><br><span class="line">    h[m]=(ll)(w[m]<span class="number">-1</span>)%mod;<span class="comment">//h表示素数个数</span></span><br><span class="line">    g[m]=mul((ll)(w[m]+<span class="number">2</span>)%mod,(ll)(w[m]<span class="number">-1</span>)%mod);<span class="comment">//g表示素数和</span></span><br><span class="line">    <span class="keyword">if</span> (g[m]&amp;<span class="number">1</span>) g[m]+=mod;g[m]/=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=pcnt;j++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m&amp;&amp;<span class="number">1l</span>l*prime[j]*prime[j]&lt;=w[i];++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> idd=(w[i]/prime[j])&lt;=sqr?id1[w[i]/prime[j]]:id2[n/(w[i]/prime[j])];</span><br><span class="line">        g[i]=sub(g[i],mul(prime[j],sub(g[idd],pre[j<span class="number">-1</span>])));</span><br><span class="line">        h[i]=sub(h[i],sub(h[idd],j<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-考虑合数"><a href="#2-考虑合数" class="headerlink" title="2.考虑合数"></a>2.考虑合数</h3><p>同样的我们可以考虑容斥掉合数。</p>
+<p>首先我们定义$S(n,j)=\sum _{i=1}^{n} [ver(i)\ge P_j]f(i)$</p>
+<p>则有$ans=S(n+1)+f(1)$</p>
+<p>质数部分的答案是 $h(n,j)=g[n][j]-\sum_{i=1}^{j-1}f(P_i)$</p>
+<p>然后我们枚举最小的质因子并且枚举次幂，有<br>$$<br>S(n,j)=h(n,|prime|)+\sum_{k=j}^{P_k^2\le n}\sum_{e=1}^{P_k^{e+1}\le n}S(\frac{n}{P_k^e},k+1)\times f(P_k^e)+f(P_k^{e+1})<br>$$<br>边界是$(n\le 1 )or( P_j&gt;n)$ </p>
+<h2 id="例题：loj6053简单的函数"><a href="#例题：loj6053简单的函数" class="headerlink" title="例题：loj6053简单的函数"></a>例题：<a href="https://loj.ac/problem/6053" target="_blank" rel="noopener">loj6053简单的函数</a></h2><p>首先把$f[i]$当成$i-1$求素数和以及素数个数，相减就是素数的和（2要特判一下）然后直接跑合数的就行了</p>
+<p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;a+=b;<span class="keyword">return</span> a&gt;=mod?a-mod:a;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;a-=b;<span class="keyword">return</span> a&lt;<span class="number">0</span>?a+mod:a;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> (ll)a*b%mod;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">int</span> ret=<span class="number">1</span>;<span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>,a=mul(a,a))<span class="keyword">if</span>(b&amp;<span class="number">1</span>)ret=mul(ret,a);<span class="keyword">return</span> ret;&#125;</span><br><span class="line"><span class="comment">/* math */</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span> +<span class="number">10</span>;</span><br><span class="line">ll n,sqr;</span><br><span class="line"><span class="keyword">int</span> prime[N],pre[N],pcnt,v[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getprime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!v[i])prime[++pcnt]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=pcnt&amp;&amp;(<span class="keyword">long</span> <span class="keyword">long</span>)prime[j]*i&lt;=n;j++)&#123;</span><br><span class="line">            v[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(!i%prime[j])<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=pcnt;i++)&#123;</span><br><span class="line">        pre[i]=add(pre[i<span class="number">-1</span>],prime[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> h[N];</span><br><span class="line"><span class="keyword">int</span> g[N];</span><br><span class="line"><span class="keyword">int</span> m;ll w[N];<span class="keyword">int</span> id1[N],id2[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">S</span><span class="params">(ll x,ll k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=<span class="number">1</span>||prime[k]&gt;x)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> idd=(x&lt;=sqr)?id1[x]:id2[n/x];</span><br><span class="line">    <span class="keyword">int</span> res=sub(sub(g[idd],h[idd]),sub(pre[k<span class="number">-1</span>],k<span class="number">-1</span>));</span><br><span class="line">    <span class="keyword">if</span>(k==<span class="number">1</span>)res=add(res,<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=k;i&lt;=pcnt&amp;&amp;<span class="number">1l</span>l*prime[i]*prime[i]&lt;=x;i++)&#123;</span><br><span class="line">        ll p1=prime[i],p2=(ll)prime[i]*prime[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> e=<span class="number">1</span>;p2&lt;=x;++e,p1=p2,p2*=prime[i])&#123;</span><br><span class="line">            res=add(res,add(mul(S(x/p1,i+<span class="number">1</span>),prime[i]^e),prime[i]^(e+<span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);sqr=<span class="built_in">sqrt</span>(n);getprime(sqr);</span><br><span class="line">    <span class="keyword">for</span>(ll u=<span class="number">1</span>,v;u&lt;=n;u=v+<span class="number">1</span>)&#123;</span><br><span class="line">        v=n/(n/u);</span><br><span class="line">        w[++m]=n/u;</span><br><span class="line">        <span class="keyword">if</span>(w[m]&lt;=sqr)id1[w[m]]=m;</span><br><span class="line">        <span class="keyword">else</span> id2[n/w[m]]=m;</span><br><span class="line">        h[m]=(ll)(w[m]<span class="number">-1</span>)%mod;</span><br><span class="line">        g[m]=mul((ll)(w[m]+<span class="number">2</span>)%mod,(ll)(w[m]<span class="number">-1</span>)%mod);</span><br><span class="line">        <span class="keyword">if</span> (g[m]&amp;<span class="number">1</span>) g[m]+=mod;g[m]/=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=pcnt;j++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m&amp;&amp;<span class="number">1l</span>l*prime[j]*prime[j]&lt;=w[i];++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> idd=(w[i]/prime[j])&lt;=sqr?id1[w[i]/prime[j]]:id2[n/(w[i]/prime[j])];</span><br><span class="line">            g[i]=sub(g[i],mul(prime[j],sub(g[idd],pre[j<span class="number">-1</span>])));</span><br><span class="line">            h[i]=sub(h[i],sub(h[idd],j<span class="number">-1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,add(S(n,<span class="number">1</span>),<span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学-数论/" rel="tag"># 数学/数论</a>
+          
+            <a href="/tags/筛法/" rel="tag"># 筛法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/21/AGC001F/" rel="next" title="AGC001F">
+                <i class="fa fa-chevron-left"></i> AGC001F
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/timg.jpg" alt="jerome_wei">
+            
+              <p class="site-author-name" itemprop="name">jerome_wei</p>
+              <p class="site-description motion-element" itemprop="description">using namespace std:)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#干什么用的？"><span class="nav-number">1.</span> <span class="nav-text">干什么用的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约定"><span class="nav-number">2.</span> <span class="nav-text">约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么筛"><span class="nav-number">3.</span> <span class="nav-text">怎么筛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-考虑质数"><span class="nav-number">3.1.</span> <span class="nav-text">1. 考虑质数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-考虑合数"><span class="nav-number">3.2.</span> <span class="nav-text">2.考虑合数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题：loj6053简单的函数"><span class="nav-number">4.</span> <span class="nav-text">例题：loj6053简单的函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jerome_wei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+</body>
+</html>

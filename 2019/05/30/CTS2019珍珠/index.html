@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="jerome_wei">
 <meta property="og:description" content="不难发现我们需要一个选奇数/偶数个的egf这个分别是 $\frac {e^x - e^{-x}} {2}​$ 和 $\frac {e^x + e^{-x}} {2}​$。 然后就可以开始推式子了。 答案是  $$n!\sum _{k=0}^{n-2m}(\frac {e^x + e^{-x}} {2}+y\frac {e^x - e^{-x}} {2})^D [x^n][y^k]$$ $$= n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-30T15:48:51.244Z">
+<meta property="og:updated_time" content="2019-05-30T15:52:17.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CTS2019珍珠">
 <meta name="twitter:description" content="不难发现我们需要一个选奇数/偶数个的egf这个分别是 $\frac {e^x - e^{-x}} {2}​$ 和 $\frac {e^x + e^{-x}} {2}​$。 然后就可以开始推式子了。 答案是  $$n!\sum _{k=0}^{n-2m}(\frac {e^x + e^{-x}} {2}+y\frac {e^x - e^{-x}} {2})^D [x^n][y^k]$$ $$= n">
@@ -379,7 +379,10 @@
 <p>设 $lim = n-2m$</p>
 <p>我们可以轻易的算出贡献</p>
 <p>枚举i, 枚举有多少次是2(至少多加了1)</p>
-<p>有:<br>$$<br>ans<em>2^D = \sum _{i=0}^D \binom {D}{i} (2i-D)^n \sum_p^D ff[p] \sum_{k=0}^D \binom {lim-p}{k} 2^k \binom{i}{k}<br>$$<br>交换第二三个和号，并且将只与一个变量相关的弄到一起，最后会形成如下形式：<br>$$<br>ans</em>2^D = \sum _{i=0}^D A(i)  \sum_p^D B(p) \frac{1}{(i-p)!}\sum_{k=0}^D C(k) \frac{1}{(lim-p-k)!}<br>$$<br>其中，$A,B,C$是三个多项式</p>
+<p>有:<br>$$<br>ans*2^D = \sum _{i=0}^D \binom {D}{i} (2i-D)^n \sum_p^D ff[p] \sum_{k=0}^D \binom {lim-p}{k} 2^k \binom{i}{k}<br>$$</p>
+<p>交换第二三个和号，并且将只与一个变量相关的弄到一起，最后会形成如下形式：</p>
+<p>$$<br>ans*2^D = \sum _{i=0}^D A(i)  \sum_p^D B(p) \frac{1}{(i-p)!}\sum_{k=0}^D C(k) \frac{1}{(lim-p-k)!}<br>$$</p>
+<p>其中，$A,B,C$是三个多项式</p>
 <p>将sigma_p后的部分当作f(p),f(p)可以通过C与$e^x$卷积得到，之后再卷积一次就能得出答案</p>
 <p>复杂度一个log</p>
 <p>代码：</p>

@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="jerome_wei">
 <meta property="og:description" content="复数以及单位根复数我们可以把复数 $a+b*i$ 表示为一个 $(a,b)$ 的向量（a，b均为实数，而 i 表示$\sqrt {-1}$。 c++里面有复数的stl，大概是 1234#include&amp;lt;complex&amp;gt;using namespace std;typedef complex cplx;cplx&amp;lt;double&amp;gt; x;x=cplx(1.00,1.00);//x.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-02T15:34:26.913Z">
+<meta property="og:updated_time" content="2019-05-24T12:07:11.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FFT学习笔记">
 <meta name="twitter:description" content="复数以及单位根复数我们可以把复数 $a+b*i$ 表示为一个 $(a,b)$ 的向量（a，b均为实数，而 i 表示$\sqrt {-1}$。 c++里面有复数的stl，大概是 1234#include&amp;lt;complex&amp;gt;using namespace std;typedef complex cplx;cplx&amp;lt;double&amp;gt; x;x=cplx(1.00,1.00);//x.">
@@ -380,15 +380,15 @@
 <p>然后就可以开始看FFT了</p>
 <h3 id="点值表示法"><a href="#点值表示法" class="headerlink" title="点值表示法"></a>点值表示法</h3><p>相当于存成 {$f(i_1),f(i_2),f(i_3),……$}的形式，不难发现我们呢可以在On的时间内求出两个多项式相乘的点值表示。</p>
 <p>所以我们现在的问题就在于如何在可以接受的时间内将一个向量表示法变成点值表示法。</p>
-<h3 id="DFT（离散傅里叶变换）-amp-IDFT"><a href="#DFT（离散傅里叶变换）-amp-IDFT" class="headerlink" title="DFT（离散傅里叶变换）&amp; IDFT"></a>DFT（离散傅里叶变换）&amp; IDFT</h3><p>对于n向n-1次的多项式，我们代入n次单位复数根的向量（别问为啥）</p>
+<h3 id="DFT（离散傅里叶变换）-amp-IDFT"><a href="#DFT（离散傅里叶变换）-amp-IDFT" class="headerlink" title="DFT（离散傅里叶变换）&amp; IDFT"></a>DFT（离散傅里叶变换）&amp; IDFT</h3><p>对于n项n-1次的多项式，我们代入n次单位复数根的向量（别问为啥）</p>
 <p>然后IDFT就是这个东西的逆运算。</p>
 <p>我们为什么要用这个呢</p>
-<h4 id="特殊性质！"><a href="#特殊性质！" class="headerlink" title="特殊性质！"></a>特殊性质！</h4><p>多项式 $A(x),B(x)$,其中，B 的系数分别为 A 的DFT的点值</p>
-<p>我们再让$B(x)$的系数$y_i$取单位根的倒数，即{$w_n^0,w_n^{-1},w_n^{-2},……$}</p>
+<h4 id="特殊性质！"><a href="#特殊性质！" class="headerlink" title="特殊性质！"></a>特殊性质！</h4><p>多项式 $A(x),B(x)​$,其中，B 的系数分别为 A 的DFT的点值</p>
+<p>我们再让$B(x)​$的系数$y_i​$取单位根的倒数，即{$w_n^0,w_n^{-1},w_n^{-2},……​$}</p>
 <p>有：</p>
-<p>$$<br>z_k=\sum _{i=0}^{n-1}yi(w_n^k)^i<br>\ =\sum _{i=0}^{n-1}   {\sum _{j=0}^{n-1}a_j(w_n^i)^j}  (w_n^k)^i<br>\ =\sum _{j=0}^{n-1} a_j  \sum _{i=0}^{n-1} (w_n^{j-k})^i<br>$$<br>$j\ne k$的时候，我们用等比数列可以求出原式$=((w^{j−k}_n)^n−1)/（wj−kn−1) =0 $</p>
-<p>$j = k$的时候，我们可以知道原式=$a(j)*n$</p>
-<p>所以$z_k=a_j*n$</p>
+<p>$$<br>z_k=\sum _{i=0}^{n-1}yi(w_n^k)^i<br>\ =\sum _{i=0}^{n-1}   {\sum _{j=0}^{n-1}a_j(w_n^i)^j}  (w_n^k)^i<br>\ =\sum _{j=0}^{n-1} a_j  \sum _{i=0}^{n-1} (w_n^{j-k})^i<br>$$<br>$j\ne k​$的时候，我们用等比数列可以求出原式$=((w^{j−k}_n)^n−1)/（wj−kn−1) =0 ​$</p>
+<p>$j = k​$的时候，我们可以知道原式=$a(j)*n​$</p>
+<p>所以$z_k=a_j*n​$</p>
 <p>所以IDFT就相当于取单位根倒数再分别除n。</p>
 <p>于是我们只用讨论DFT的实现了。</p>
 <h3 id="FFT实现"><a href="#FFT实现" class="headerlink" title="FFT实现"></a>FFT实现</h3><p>令 ：<br>$$<br>A_1(x)= a_0+a_2x+……+a_{n-2}{x^{n/2-1}},<br>$$<br>$$<br> A_2(x)= a_1+a_3x+……+a_{n-1}{x^{n/2-1}}<br>$$</p>
@@ -534,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -556,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

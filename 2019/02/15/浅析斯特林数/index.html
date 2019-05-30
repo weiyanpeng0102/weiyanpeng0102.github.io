@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="jerome_wei">
 <meta property="og:description" content="本文有推导 定义&amp;amp;前置知识第一类斯特林数定义第一类斯特林数 $ \begin{bmatrix} n \\ m \end{bmatrix} ​$ 表示把 n 个数划分成 m 个环排列的方案数 考虑最后一个数怎么放，（放入一个环或开一个环），有递推式：$$\begin{bmatrix} n \\ m \end{bmatrix} = \begin{bmatrix} n-1 \\ m-1 \en">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-22T15:55:16.328Z">
+<meta property="og:updated_time" content="2019-05-12T12:20:02.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析斯特林数">
 <meta name="twitter:description" content="本文有推导 定义&amp;amp;前置知识第一类斯特林数定义第一类斯特林数 $ \begin{bmatrix} n \\ m \end{bmatrix} ​$ 表示把 n 个数划分成 m 个环排列的方案数 考虑最后一个数怎么放，（放入一个环或开一个环），有递推式：$$\begin{bmatrix} n \\ m \end{bmatrix} = \begin{bmatrix} n-1 \\ m-1 \en">
@@ -374,10 +374,10 @@
 <h3 id="第二类斯特林数"><a href="#第二类斯特林数" class="headerlink" title="第二类斯特林数"></a>第二类斯特林数</h3><p>定义第二类斯特林数$\begin{Bmatrix} n \\ m \end{Bmatrix}$表示把n个数划分乘m个集合的方案数</p>
 <p><strong>考虑最后一个数怎么放，有递推式：</strong></p>
 <p>$$<br>\begin{Bmatrix} n \\ m \end{Bmatrix} = \begin{Bmatrix} n - 1 \\ m - 1 \end{Bmatrix}+\begin{Bmatrix} n - 1\\ m \end{Bmatrix} \ast m<br>$$<br><strong>考虑最后一个集合是什么，枚举大小，有递推式：</strong></p>
-<p>$$<br>\begin{Bmatrix} n \\ m \end{Bmatrix} = \sum_{i = 1}^n \begin{Bmatrix} n  - i\ m - 1 \end{Bmatrix}\ast \binom{n - 1}{i - 1}<br>$$</p>
+<p>$$<br>\begin{Bmatrix} n \\ m \end{Bmatrix} = \sum_{i = 1}^n \begin{Bmatrix} n  - i\\ m - 1 \end{Bmatrix}\ast \binom{n - 1}{i - 1}<br>$$</p>
 <h4 id="容斥计算"><a href="#容斥计算" class="headerlink" title="容斥计算"></a>容斥计算</h4><p>$$<br>\begin{Bmatrix} n \\ m \end{Bmatrix}=\frac{1}{m!}\sum_{k = 0} ^ m (-1)^k \binom{m}{k}(m - k) ^n<br>$$</p>
 <blockquote>
-<p> <strong>推导</strong>  EGF是$e^x-1$的m次方，打开就行了</p>
+<p> <strong>推导</strong>  EGF是$e^x-1​$的m次方，打开就行了</p>
 </blockquote>
 <h2 id="结论-公式"><a href="#结论-公式" class="headerlink" title="结论/公式"></a>结论/公式</h2><h3 id="1-amp-2（次幂转下降幂-amp-下降幂转次幂）"><a href="#1-amp-2（次幂转下降幂-amp-下降幂转次幂）" class="headerlink" title="1&amp;2（次幂转下降幂&amp;下降幂转次幂）"></a>1&amp;2（次幂转下降幂&amp;下降幂转次幂）</h3><p><strong>下降幂转次幂</strong></p>
 <p>$$<br>x^{\underline{n}} = \sum_{k = 0} ^ n (-1)^{n - k}\begin{bmatrix} n \\ k \end{bmatrix}x^k<br>$$</p>
@@ -540,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -562,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
